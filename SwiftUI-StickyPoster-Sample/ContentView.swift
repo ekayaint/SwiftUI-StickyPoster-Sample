@@ -8,6 +8,7 @@
 import SwiftUI
 var mesaj = """
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
 """
 struct ContentView: View {
   
@@ -23,8 +24,11 @@ struct Home : View{
                 Image("kapak")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
+                    .offset(y: -gr.frame(in: .global).minY)
+                    .frame(width: UIScreen.main.bounds.width,
+                           height: gr.frame(in: .global).minY > 0 ? gr.frame(in: .global).minY + 480 : 480)
                 
-                VStack(spacing: 10){
+            /*    VStack(spacing: 10){
                     Text("Min : \(gr.frame(in: .global).minY)")
                         .font(.system(size: 41))
                         .foregroundColor(.red)
@@ -36,7 +40,7 @@ struct Home : View{
                     
                 } //: VStack
                 .padding(.top, 45)
-                .padding(.leading, 25)
+                .padding(.leading, 25)*/
                 
             }  //: GR
             .frame(height: 480)
